@@ -9,6 +9,7 @@ jobs:
       - shell:
           working_directory: /go/src/github.com/smugcloud/echo-server
           command: |
+            pwd
             set -eu
             go get -t -d -v
             go test -v -race 
