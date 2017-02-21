@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: golang:1.6.2
+    steps:
+      - checkout:
+          path: /go/src/github.com/smugcloud/echo-server
+      - shell:
+          working_directory: /go/src/github.com/smugcloud/echo-server
+          command: |
+            set -eu
+            go get -t -d -v ./...
+            go test -v -race 
+      - test_results_store:
+          path: /tmp/test-results
