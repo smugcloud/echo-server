@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    workDir: /go/src/github.com/smugcloud/echo-server
     docker:
       - image: golang:1.6.2
     steps:
